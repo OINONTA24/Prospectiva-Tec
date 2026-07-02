@@ -1,0 +1,32 @@
+title: Prácticas
+description: Repositorio base para enseñar y crear documentación en GitHub Pages con Just the Docs
+
+# GitHub Pages: modo recomendado
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+url: "https://HaiAvila.github.io/"
+baseurl: "/Prospectiva-Tec"
+
+just_the_docs:
+  custom_css:
+    - "assets/css/custom.css"
+  footer_content: ""
+
+search_enabled: true
+search:
+  heading_level: 2
+
+aux_links:
+  "Repositorio en GitHub":
+    - "https://github.com/HaiAvila/Prospectiva-Tec"
+
+permalink: pretty
+
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "node_modules"
+  - "vendor"
