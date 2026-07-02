@@ -7,7 +7,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
 
-url: "https://HaiAvila.github.io/"
+url: "https://oinonta24.github.io/"
 baseurl: "/Prospectiva-Tec"
 
 just_the_docs:
@@ -21,7 +21,7 @@ search:
 
 aux_links:
   "Repositorio en GitHub":
-    - "https://github.com/HaiAvila/Prospectiva-Tec"
+    - "https://github.com/oinonta24/Prospectiva-Tec"
 
 permalink: pretty
 
