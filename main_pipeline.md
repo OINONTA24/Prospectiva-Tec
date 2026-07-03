@@ -12,7 +12,6 @@ A lo largo del proyecto se estructuró un script integrador a modo de esquema o 
 ## ¿Qué hace este código?
 Muestra el *pipeline* del proyecto como funciones independientes. Permite validar los modelos paso a paso en entornos locales sin necesidad de encender los servidores web, útil para diagnóstico y depuración antes de conectar el brazo robótico real.
 
-
 ```python
 import socket
 import time
