@@ -1,8 +1,8 @@
 ---
 title: Implementación del Proyecto
 layout: default
-parent: Reporte Final
-nav_order: 2
+parent: Práctica 5
+nav_order: 1
 ---
 
 # Implementación del Proyecto: Explicación Simple

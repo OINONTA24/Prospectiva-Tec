@@ -2,7 +2,7 @@
 layout: default
 title: Pruebas y métricas
 parent: Reporte Final
-nav_order: 1
+nav_order: 2
 ---
 
 # Pruebas de Rendimiento y Métricas del Sistema
