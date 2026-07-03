@@ -12,13 +12,14 @@ A lo largo del proyecto se estructuró un script integrador a modo de esquema o 
 ## ¿Qué hace este código?
 Muestra el *pipeline* del proyecto como funciones independientes. Permite validar los modelos paso a paso en entornos locales sin necesidad de encender los servidores web, útil para diagnóstico y depuración antes de conectar el brazo robótico real.
 
+
 ```python
 import socket
 import time
 from servidor_ia import transcribir_audio, obtener_intencion, procesar_coordenadas_visuales
 
 def enviar_a_robot(waypoints):
-    
+
     # Parámetros de red del UR3
     HOST = "192.168.1.100" 
     PORT = 30002
