@@ -2,7 +2,7 @@
 title: Servidor de Recepción
 layout: default
 parent: Reporte Final
-nav_order: 4
+nav_order: 5
 ---
 
 # Código: Servidor de Recepción servidor.py

@@ -2,7 +2,7 @@
 title: Reflexión y Retos Técnicos
 layout: default
 parent: Reporte Final
-nav_order: 3
+nav_order: 4
 ---
 
 # Reflexión Técnica, Retos y Trabajo Futuro

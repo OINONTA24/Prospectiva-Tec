@@ -8,7 +8,9 @@ nav_order: 7
 ## INTEGRANTES DEL EQUIPO
 
 Diego Marquez
+
 Haili Avila
+
 José Antonio Reyes
 
 # Proyecto Final: Integración de Gemelo Digital, IA y Robótica Física

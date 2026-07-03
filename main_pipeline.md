@@ -2,7 +2,7 @@
 title: Pipeline Conceptual
 layout: default
 parent: Reporte Final
-nav_order: 6
+nav_order: 7
 ---
 
 # Código: Orquestador Conceptual (`main_pipeline.py`)
