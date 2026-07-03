@@ -21,10 +21,6 @@ A continuación, se ilustra la arquitectura de red y el flujo de datos entre los
 
 ![Diagrama de Arquitectura de IA y UR3](assets/img/Drawing Robot.png)
 
-## Presentacion de proyecto
-
-https://canva.link/jua2qk0v30hi4yb
-
 ## Hardware Utilizado
 
 El sistema opera mediante la comunicación de dos componentes de hardware principales:
