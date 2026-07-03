@@ -2,7 +2,8 @@
 title: Reporte Final y Reflexión
 layout: default
 parent: Evaluación y Métricas
-nav_order: 3
+has_children: true
+nav_order: 7
 ---
 
 # Reporte Final: Integración de Gemelo Digital, IA y Robótica Física
