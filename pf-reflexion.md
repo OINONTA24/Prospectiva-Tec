@@ -1,6 +1,6 @@
 ---
-layout: default
 title: Reflexión comparativa
+layout: default
 parent: proyecto_final
 nav_order: 2
 ---
