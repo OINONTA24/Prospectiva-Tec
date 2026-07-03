@@ -1,7 +1,7 @@
 ---
 title: Implementación del Proyecto
 layout: default
-parent: Práctica 5
+parent: Reporte Final
 nav_order: 1
 ---
 
