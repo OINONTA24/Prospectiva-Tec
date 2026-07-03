@@ -34,5 +34,5 @@ Extensión del copiloto de la Práctica 4 para soportar tres proveedores: Ollama
 
 ### [Proyecto final - Digital twin para brazo UR3](proyecto_final.md)
 
-Práctica 5 — Proyecto Integrador: Gemelo Digital, IA y Robótica Física
+Proyecto final — Proyecto Integrador: Gemelo Digital, IA y Robótica Física
 Desarrollo de una arquitectura híbrida que integra un entorno de realidad mixta (Meta Quest 3), un pipeline secuencial de modelos de inteligencia artificial (Whisper, Llama-3.3-70b, DALL-E 2, OpenCV) y el control por hardware de un brazo robótico UR3.

@@ -1,6 +1,6 @@
 ---
-title: Pruebas y métricas
 layout: default
+title: Pruebas y métricas
 parent: proyecto_final
 nav_order: 1
 ---
