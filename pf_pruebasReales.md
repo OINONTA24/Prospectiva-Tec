@@ -38,3 +38,11 @@ En esta etapa, el usuario puede observar el resultado final del dibujo en el ent
 Finalmente, el sistema presenta un panel flotante de confirmación ("Esperando tu decisión...") con opciones de aprobación o rechazo. Si el usuario está satisfecho con la previsualización del Gemelo Digital y aprueba el resultado, se envía la instrucción de movimiento definitiva hacia el controlador del **brazo robótico UR3 físico**, el cual procede a realizar el dibujo con el plumón en el entorno real.
 
 ![Panel de Confirmación](assets/img/proyecto final/pruebas fisicas/aprobacionDibujo.png)
+
+## 7. Video de funcionamiento de proyecto
+Se muestra un video de como funciona el proyecto en las gafas Meta Quest 3 sobre el gemelo digital del brazo UR3
+
+<video width="100%" controls>
+  <source src="assets/img/proyecto%20final/pruebas%20fisicas/video prospe tec recortado.mp4" type="video/mp4">
+  Tu navegador no soporta la reproducción de video.
+</video>
