@@ -59,3 +59,4 @@ def ejecutar_pipeline_completo():
 
 if __name__ == '__main__':
     ejecutar_pipeline_completo()
+```

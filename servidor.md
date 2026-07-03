@@ -161,8 +161,6 @@ def obtener_trayectoria():
     ultimo_trayectoria = None  
     return jsonify(datos)
 
-# MAIN
-
 if __name__ == "__main__":
     print("=" * 60)
     print("Servidor Flask — UR3 Drawing Robot")
@@ -175,3 +173,4 @@ if __name__ == "__main__":
         debug=True,
         threaded=True
     )
+```
