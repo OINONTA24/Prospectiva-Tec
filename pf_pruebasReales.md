@@ -42,7 +42,13 @@ Finalmente, el sistema presenta un panel flotante de confirmación ("Esperando t
 ## 7. Video de funcionamiento de proyecto
 Se muestra un video de como funciona el proyecto en las gafas Meta Quest 3 sobre el gemelo digital del brazo UR3
 
-<video width="100%" controls>
-  <source src="assets/img/proyecto%20final/pruebas%20fisicas/video prospe tec recortado.mp4" type="video/mp4">
-  Tu navegador no soporta la reproducción de video.
-</video>
+<iframe 
+    width="100%" 
+    height="500" 
+    src="https://www.youtube.com/embed/uPoKG8aupS8" 
+    title="Pruebas físicas UR3" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+
