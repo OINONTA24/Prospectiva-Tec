@@ -51,4 +51,3 @@ Se muestra un video de como funciona el proyecto en las gafas Meta Quest 3 sobre
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen>
 </iframe>
-
