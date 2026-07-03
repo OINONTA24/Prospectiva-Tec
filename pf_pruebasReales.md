@@ -45,7 +45,7 @@ Se muestra un video de como funciona el proyecto en las gafas Meta Quest 3 sobre
 <iframe 
     width="100%" 
     height="500" 
-    src="https://youtu.be/uPoKG8aupS8" 
+    src="https://www.youtube.com/embed/uPoKG8aupS8" 
     title="Pruebas físicas UR3" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
