@@ -14,7 +14,6 @@ Este script actúa como el puente de comunicación principal entre el entorno de
 2. **Conversión y Reenvío:** Convierte el archivo a formato `.mp3` para optimizar su tamaño y lo reenvía automáticamente al Servidor 2 (el motor de Inteligencia Artificial) mediante una petición HTTP POST.
 3. **Almacenamiento de Trayectorias:** Una vez que la IA termina de procesar, este servidor recibe de vuelta un JSON con las coordenadas espaciales (los trazos UV) y las almacena temporalmente para que Unity pueda solicitarlas y dibujar el gemelo digital.
 
-
 ```python
 from flask import Flask, request, jsonify, send_file
 from datetime import datetime
