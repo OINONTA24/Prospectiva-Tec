@@ -23,4 +23,4 @@ Para lograr que el robot "entienda" al usuario, el audio capturado pasa por una 
 * **Whisper AI:** Modelo encargado del proceso **STT** (*Speech-To-Text* o conversión de voz a texto). Su función es transcribir el audio del usuario a lenguaje natural escrito de alta precisión.
 * **Llama 3.3:** Modelo de Lenguaje Grande (LLM) que recibe la transcripción y la procesa para extraer la intención del usuario. Transforma esta petición en un formato de datos estructurado (JSON).
 * **OpenAI (Generador de Imágenes):** Recibe las instrucciones estructuradas del LLM y genera una representación visual (silueta) del objeto que el usuario solicitó dibujar.
-* **OpenCV:** Herramienta de visión computacional que procesa la imagen generada por OpenAI, segmentando los trazos y transformando los píxeles de la imagen en coordenadas matemáticas espaciales listas para ser ejecutadas por el UR3.
+* **OpenCV:** Herramienta de visión computacional que procesa la imagen generada por OpenAI, segmentando los trazos y transformando los píxeles de la imagen en coordenadas m
