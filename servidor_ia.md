@@ -1,15 +1,8 @@
 ---
-
-### 2. Archivo para el Servidor de IA (`servidor_ia.md`)
-
-Crea un archivo llamado `servidor_ia.md` y pega el siguiente contenido:
-
-```markdown
----
 title: Servidor de IA y Robótica
 layout: default
 parent: Reporte Final
-nav_order: 4
+nav_order: 5
 ---
 
 # Código: Servidor de IA (`servidor_ia.py`)
@@ -35,9 +28,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from flask import Flask, request, jsonify
 
-# =====================================================================
 # CONFIGURACIÓN INICIAL
-# =====================================================================
 app = Flask(__name__)
 
 load_dotenv("openai.env") 

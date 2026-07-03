@@ -1,15 +1,8 @@
 ---
-
-### 3. Archivo para el Orquestador Conceptual (`main_pipeline.md`)
-
-Crea un archivo llamado `main_pipeline.md` y pega el siguiente contenido:
-
-```markdown
----
 title: Pipeline Conceptual
 layout: default
 parent: Reporte Final
-nav_order: 5
+nav_order: 6
 ---
 
 # Código: Orquestador Conceptual (`main_pipeline.py`)

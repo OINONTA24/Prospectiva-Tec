@@ -22,9 +22,7 @@ import os
 import requests
 app = Flask(__name__)
 
-# =============================================================================
 # ESTADO
-# =============================================================================
 contador_posts   = 0
 ultimo_recibido  = None
 
@@ -34,9 +32,7 @@ ultimo_trayectoria = None
 trayectoria_id     = 0   # se incrementa con cada POST nuevo — Unity lo usa
                           # para detectar si hay datos frescos sin re-dibujar
 
-# =============================================================================
 # RUTAS EXISTENTES
-# =============================================================================
 
 @app.route("/", methods=["GET"])
 def home():
@@ -93,9 +89,7 @@ def recibir_audio():
         tam_mp3_kb = os.path.getsize(ruta_mp3) / 1024
         print(f"MP3 generado: {tam_mp3_kb:.1f} KB → {ruta_mp3}")
 
-        # ==============================================================
-        # NUEVO: EMPUJAR AUDIO AL SERVIDOR 2 (TU COMPUTADORA)
-        # ==============================================================
+        # EMPUJAR AUDIO AL SERVIDOR 2 (TU COMPUTADORA)
         url_tu_servidor = "[http://127.0.0.1:5000/recibir-orden](http://127.0.0.1:5000/recibir-orden)"
         try:
             print(f"Enviando audio automáticamente a la PC de IA: {url_tu_servidor}")
@@ -174,12 +168,11 @@ def obtener_trayectoria():
         return ("", 204)
 
     datos = ultimo_trayectoria
-    ultimo_trayectoria = None   # ← limpiar después de entregar
+    ultimo_trayectoria = None  
     return jsonify(datos)
 
-# =============================================================================
 # MAIN
-# =============================================================================
+
 if __name__ == "__main__":
     print("=" * 60)
     print("Servidor Flask — UR3 Drawing Robot")
