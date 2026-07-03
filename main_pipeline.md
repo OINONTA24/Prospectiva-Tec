@@ -19,7 +19,6 @@ from servidor_ia import transcribir_audio, obtener_intencion, procesar_coordenad
 
 def enviar_a_robot(waypoints):
 
-    # Parámetros de red del UR3
     HOST = "192.168.1.100" 
     PORT = 30002
     
@@ -28,12 +27,10 @@ def enviar_a_robot(waypoints):
         robot_socket.connect((HOST, PORT))
         print("¡Conectado al controlador CB3 del UR3!")
 
-        # Iteración sobre los puntos para dibujar
         for wp in waypoints:
-            # Comando de movimiento lineal en URScript
             comando = f"movel(p[{wp[0]}, {wp[1]}, {wp[2]}, 0, 3.14, 0], a=0.1, v=0.1)\n"
             robot_socket.send(comando.encode('utf8'))
-            time.sleep(0.1) # Breve pausa para no saturar el buffer
+            time.sleep(0.1) 
         
         robot_socket.close()
         print("Trayectoria ejecutada con éxito.")
@@ -41,7 +38,7 @@ def enviar_a_robot(waypoints):
         print(f"Error crítico en la comunicación robótica: {e}")
 
 def ejecutar_pipeline_completo():
-    # Ruta del archivo generado
+
     ruta_audio = "audio_files/input_audio.wav"
     
     print("1. Analizando voz...")
