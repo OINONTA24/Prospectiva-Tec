@@ -9,6 +9,10 @@ nav_order: 7
 
 Este proyecto integrador demuestra la construcción de un **Gemelo Digital** (*Digital Twin*), una tecnología que consiste en crear una réplica virtual exacta de un sistema físico. Esto permite simular, monitorear y controlar hardware del mundo real a través de un entorno digital inmersivo, logrando que la intención humana se traduzca en movimiento mecánico de forma natural.
 
+A continuación, se ilustra la arquitectura de red y el flujo de datos entre los distintos modelos de inteligencia artificial y los componentes de hardware:
+
+![Diagrama de Arquitectura de IA y UR3](assets/img/Drawing Robot.png)
+
 ## Hardware Utilizado
 
 El sistema opera mediante la comunicación de dos componentes de hardware principales:
