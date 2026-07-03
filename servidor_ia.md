@@ -14,6 +14,7 @@ Este módulo es el núcleo computacional del proyecto. Funciona como un segundo 
 2. **Transformación Espacial:** Utiliza OpenCV para detectar los contornos de la imagen generada, filtrar trazos duplicados mediante el algoritmo de *Douglas-Peucker* y mapearlos en coordenadas XY.
 3. **Control Físico Directo:** Ejecuta la librería `urx` para conectarse por Ethernet a la IP del brazo robótico (192.168.3.75) y mover físicamente el efector final mediante comandos absolutos de la API nativa de Universal Robots.
 
+
 ```python
 import os
 import json

@@ -18,6 +18,7 @@ import time
 from servidor_ia import transcribir_audio, obtener_intencion, procesar_coordenadas_visuales
 
 def enviar_a_robot(waypoints):
+    
     # Parámetros de red del UR3
     HOST = "192.168.1.100" 
     PORT = 30002

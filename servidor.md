@@ -22,17 +22,12 @@ import os
 import requests
 app = Flask(__name__)
 
-# ESTADO
 contador_posts   = 0
 ultimo_recibido  = None
 
-# Trayectoria más reciente recibida desde el pipeline de OpenCV.
-# Unity hace GET /trayectoria para obtenerla y dibujar.
 ultimo_trayectoria = None
-trayectoria_id     = 0   # se incrementa con cada POST nuevo — Unity lo usa
-                          # para detectar si hay datos frescos sin re-dibujar
+trayectoria_id     = 0  
 
-# RUTAS EXISTENTES
 
 @app.route("/", methods=["GET"])
 def home():
@@ -89,7 +84,6 @@ def recibir_audio():
         tam_mp3_kb = os.path.getsize(ruta_mp3) / 1024
         print(f"MP3 generado: {tam_mp3_kb:.1f} KB → {ruta_mp3}")
 
-        # EMPUJAR AUDIO AL SERVIDOR 2 (TU COMPUTADORA)
         url_tu_servidor = "[http://127.0.0.1:5000/recibir-orden](http://127.0.0.1:5000/recibir-orden)"
         try:
             print(f"Enviando audio automáticamente a la PC de IA: {url_tu_servidor}")
@@ -99,7 +93,6 @@ def recibir_audio():
             print(f"Respuesta del Servidor 2: {res_s2.status_code}")
         except Exception as e:
             print(f"Advertencia: No se pudo enviar el audio al Servidor 2. {e}")
-        # ==============================================================
 
         ultimo_recibido = {
             "tipo": "mp3",
@@ -124,10 +117,6 @@ def descargar_audio():
     if os.path.exists(ruta):
         return send_file(ruta, as_attachment=True)
     return jsonify({"status": "error", "message": "No hay audio disponible"}), 404
-
-# =============================================================================
-# NUEVO: TRAYECTORIA
-# =============================================================================
 
 @app.route("/trayectoria", methods=["POST"])
 def recibir_trayectoria():
