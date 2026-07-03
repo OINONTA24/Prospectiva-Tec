@@ -1,5 +1,5 @@
 ---
-title: Reporte Final y Reflexión
+title: Reporte Final
 layout: default
 has_children: true
 nav_order: 7
