@@ -2,7 +2,7 @@
 layout: default
 title: Reflexión comparativa
 parent: Reporte Final
-nav_order: 2
+nav_order: 3
 ---
 
 # Reflexión Técnica, Retos y Trabajo Futuro
