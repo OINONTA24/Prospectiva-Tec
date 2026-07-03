@@ -1,7 +1,6 @@
 ---
 title: Reporte Final y Reflexión
 layout: default
-parent: Evaluación y Métricas
 has_children: true
 nav_order: 7
 ---
