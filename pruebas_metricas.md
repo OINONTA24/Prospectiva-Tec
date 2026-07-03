@@ -15,8 +15,12 @@ Para garantizar que el brazo robótico no actuara de forma errática, el proyect
 
 * **Pruebas de Software Local (Unitarias):** Se probó el servidor Python de forma aislada. Se introdujeron audios pregrabados para verificar que los modelos Whisper, Llama y DALL-E se comunicaran correctamente entre sí sin interrupciones de red.
 * **Pruebas de Realidad Mixta (Simulación):** Se probó la captura de audio desde las gafas Meta Quest 3. Antes de conectar el robot real, las trayectorias matemáticas generadas por OpenCV se enviaron al Gemelo Digital en Unity para asegurar que el modelo tridimensional dibujara correctamente en el entorno virtual.
-* **Pruebas de Hardware en Vaciío (Dry-Run):** Se conectó el brazo UR3 físico pero sin un marcador instalado. El objetivo era verificar los límites espaciales y comprobar que las coordenadas no forzaran al robot a golpear la mesa o exceder sus límites de articulación.
+* **Pruebas de Hardware en Vacio (Dry-Run):** Se conectó el brazo UR3 físico pero sin un marcador instalado. El objetivo era verificar los límites espaciales y comprobar que las coordenadas no forzaran al robot a golpear la mesa o exceder sus límites de articulación.
+
+### Puntos que no se completaron en el proyecto
+
 * **Pruebas de Integración Final:** La ejecución del sistema completo, desde el dictado de voz hasta el dibujo con el plumón en el pizarrón real, validando la precisión del trazo.
+    * **Razon: Falta de tiempo y falta de entablar comunicación con el robot fisico.
 
 ## 2. Análisis de Latencia por Modelo
 
