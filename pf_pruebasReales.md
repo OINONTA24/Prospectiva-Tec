@@ -1,5 +1,5 @@
 ---
-title: Pruebas Físicas e Interfaz
+title: Frontend y pruebas físicas
 layout: default
 parent: Reporte Final
 nav_order: 4
