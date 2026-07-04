@@ -2,7 +2,7 @@
 title: Servidor de IA y Robótica
 layout: default
 parent: Reporte Final
-nav_order: 6
+nav_order: 7
 ---
 
 # Código: Servidor de IA (`servidor_ia.py`)

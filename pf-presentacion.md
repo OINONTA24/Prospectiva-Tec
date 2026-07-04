@@ -2,14 +2,7 @@
 title: Presentacion de proyecto
 layout: default
 parent: Reporte Final
-nav_order: 8
----
-
----
-title: Presentación Final
-layout: default
-parent: Reporte Final
-nav_order: 8
+nav_order: 1
 ---
 
 # Arquitectura del Sistema Robótica Integrada

@@ -2,7 +2,7 @@
 title: Implementación del Proyecto
 layout: default
 parent: Reporte Final
-nav_order: 1
+nav_order: 2
 ---
 
 # Implementación del Proyecto
