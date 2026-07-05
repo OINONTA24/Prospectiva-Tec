@@ -92,9 +92,7 @@ Si el UR3 se conectara directamente a las salidas del LLM sin capas de protecci�
 
 ## Conclusión del experimento
 
-El diseño experimental demostró la viabilidad de usar un LLM en la nube (Groq) como capa de procesamiento semántico para un sistema robótico (UR3): 100 % de éxito en la clasificación de intenciones `draw` / `none` y validez estructural perfecta en el JSON de salida, sobre un banco de 100 pruebas.
-
-El análisis de rendimiento, sin embargo, señala dos puntos a vigilar antes de escalar esta arquitectura a producción:
+El análisis de rendimiento señala dos puntos a vigilar antes de escalar esta arquitectura a producción:
 
 1. **Latencia y su variabilidad.** La media de 2236.90 ms —y sobre todo el P99 de 3764.02 ms, cerca del máximo observado (4096.89 ms)— hacen que este pipeline sea adecuado para despacho de tareas por lotes, pero no para control síncrono en tiempo real estricto.
 2. **Tamaño real del banco de pruebas.** El 100 % de accuracy se midió sobre 20 enunciados únicos repetidos 5 veces cada uno, no sobre 100 formulaciones distintas. El resultado confirma consistencia del modelo, pero una siguiente iteración debería usar paráfrasis reales para medir generalización.
