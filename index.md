@@ -34,7 +34,7 @@ Extensión del copiloto de la Práctica 4 para soportar tres proveedores: Ollama
 
 ### [Práctica 6 — Evaluación de arquitectura LLM: clasificación semántica para el brazo UR3](practica-06.md)
 
-Adaptación del caso de estudio de evaluación de arquitecturas LLM (backend + JSON + MQTT): banco de 100 pruebas cíclicas contra Llama 3.2 3B, qwen2.5 7b y mistral:7b para evaluar que modelo sigue mejor las instrucciones para el control de un led mediante voz como `enciende el led`, `no enciendas el led`, etc. Extrayendo objetos, posiciones y acciones en un JSON estructurado. Incluye métricas de clasificación con scikit-learn (accuracy, F1-score, matriz de confusión), análisis de latencia y consumo de tokens.
+Adaptación del caso de estudio de evaluación de arquitecturas LLM (backend + JSON + MQTT): banco de 100 pruebas cíclicas contra Llama 3.2 3B, qwen2.5 7b y mistral:7b para evaluar que modelo sigue mejor las instrucciones para el control de un led mediante voz como `enciende el led`, `no enciendas el led`, etc. Extrayendo información que indica la instrucción a realizar en un JSON estructurado. Incluye métricas de clasificación con scikit-learn (accuracy, F1-score, matriz de confusión), análisis de latencia y consumo de tokens.
 
 ### [Proyecto final - Digital twin para brazo UR3](proyecto_final.md)
 
