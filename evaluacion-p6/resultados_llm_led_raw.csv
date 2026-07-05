@@ -1,0 +1,446 @@
+trial,prompt_text,expected_action,llm_action,schema_valid,latency_ms,prompt_tokens,completion_tokens,raw_json_output
+1,Quiero que me dibujes un pato en una moto en el centro,draw,draw,True,667.6425933837891,630,62,"{
+  ""objects"": [
+       {""name"": ""duck"", ""position"": ""center"", ""action"": ""riding"", ""relative_to"": ""on a motorcycle""},
+       {""name"": ""motorcycle"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+2,un perro corriendo a la izquierda y un gato durmiendo,draw,draw,True,515.7513618469238,631,59,"{
+  ""objects"": [
+       {""name"": ""dog"", ""position"": ""left"", ""action"": ""running"", ""relative_to"": null},
+       {""name"": ""cat"", ""position"": null, ""action"": ""sleeping"", ""relative_to"": null}
+   ]
+}"
+3,dibujame un coche a la derecha y un pajaro volando sobre un arbol arriba,draw,draw,True,612.994909286499,637,86,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""right"", ""action"": null, ""relative_to"": null},
+       {""name"": ""bird"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""over a tree""},
+       {""name"": ""tree"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+4,pinta una manzana roja... no mejor dibuja un coche azul en el centro,draw,draw,True,528.0241966247559,635,33,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+5,dibuja un astronauta flotando a la derecha,draw,draw,True,328.1543254852295,627,35,"{
+  ""objects"": [
+       {""name"": ""astronaut"", ""position"": ""right"", ""action"": ""floating"", ""relative_to"": null}
+   ]
+}"
+6,traza un circulo en el centro y pon un cuadrado adentro de el,draw,draw,True,361.94372177124023,633,60,"{
+  ""objects"": [
+       {""name"": ""circle"", ""position"": ""center"", ""action"": null, ""relative_to"": null},
+       {""name"": ""square"", ""position"": ""center"", ""action"": null, ""relative_to"": ""inside a circle""}
+   ]
+}"
+7,quiero ver un barco navegando en el mar abajo en el lienzo,draw,draw,True,470.31259536743164,631,62,"{
+  ""objects"": [
+       {""name"": ""boat"", ""position"": ""bottom"", ""action"": ""sailing"", ""relative_to"": ""in the sea""},
+       {""name"": ""sea"", ""position"": ""bottom"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+8,esboza un caballo saltando sobre una valla a la izquierda,draw,draw,True,417.7711009979248,630,63,"{
+  ""objects"": [
+       {""name"": ""horse"", ""position"": ""left"", ""action"": ""jumping"", ""relative_to"": ""over a fence""},
+       {""name"": ""fence"", ""position"": ""left"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+9,pinta un avion volando en las nubes arriba,draw,draw,True,512.711763381958,627,64,"{
+  ""objects"": [
+       {""name"": ""airplane"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""in the clouds""},
+       {""name"": ""clouds"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+10,dibuja una taza de cafe caliente en una mesa en el centro,draw,draw,True,410.3977680206299,629,62,"{
+  ""objects"": [
+       {""name"": ""cup of coffee"", ""position"": ""center"", ""action"": null, ""relative_to"": ""on a table""},
+       {""name"": ""table"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+11,Quiero que me dibujes un pato en una moto en el centro,draw,draw,True,521.4848518371582,630,62,"{
+  ""objects"": [
+       {""name"": ""duck"", ""position"": ""center"", ""action"": ""riding"", ""relative_to"": ""on a motorcycle""},
+       {""name"": ""motorcycle"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+12,un perro corriendo a la izquierda y un gato durmiendo,draw,draw,True,521.2693214416504,631,59,"{
+  ""objects"": [
+       {""name"": ""dog"", ""position"": ""left"", ""action"": ""running"", ""relative_to"": null},
+       {""name"": ""cat"", ""position"": null, ""action"": ""sleeping"", ""relative_to"": null}
+   ]
+}"
+13,dibujame un coche a la derecha y un pajaro volando sobre un arbol arriba,draw,draw,True,419.3449020385742,637,86,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""right"", ""action"": null, ""relative_to"": null},
+       {""name"": ""bird"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""over a tree""},
+       {""name"": ""tree"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+14,pinta una manzana roja... no mejor dibuja un coche azul en el centro,draw,draw,True,409.1496467590332,635,33,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+15,dibuja un astronauta flotando a la derecha,draw,draw,True,405.411958694458,627,35,"{
+  ""objects"": [
+       {""name"": ""astronaut"", ""position"": ""right"", ""action"": ""floating"", ""relative_to"": null}
+   ]
+}"
+16,traza un circulo en el centro y pon un cuadrado adentro de el,draw,draw,True,630.9421062469482,633,60,"{
+  ""objects"": [
+      {""name"": ""circle"", ""position"": ""center"", ""action"": null, ""relative_to"": null},
+      {""name"": ""square"", ""position"": ""center"", ""action"": null, ""relative_to"": ""inside a circle""}
+   ]
+}"
+17,quiero ver un barco navegando en el mar abajo en el lienzo,draw,draw,True,504.70733642578125,631,62,"{
+  ""objects"": [
+       {""name"": ""boat"", ""position"": ""bottom"", ""action"": ""sailing"", ""relative_to"": ""in the sea""},
+       {""name"": ""sea"", ""position"": ""bottom"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+18,esboza un caballo saltando sobre una valla a la izquierda,draw,draw,True,516.2391662597656,630,63,"{
+  ""objects"": [
+       {""name"": ""horse"", ""position"": ""left"", ""action"": ""jumping"", ""relative_to"": ""over a fence""},
+       {""name"": ""fence"", ""position"": ""left"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+19,pinta un avion volando en las nubes arriba,draw,draw,True,507.8544616699219,627,64,"{
+  ""objects"": [
+       {""name"": ""airplane"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""in the clouds""},
+       {""name"": ""clouds"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+20,dibuja una taza de cafe caliente en una mesa en el centro,draw,draw,True,529.5226573944092,629,62,"{
+  ""objects"": [
+       {""name"": ""cup of coffee"", ""position"": ""center"", ""action"": null, ""relative_to"": ""on a table""},
+       {""name"": ""table"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+21,Quiero que me dibujes un pato en una moto en el centro,draw,draw,True,469.29001808166504,630,62,"{
+  ""objects"": [
+       {""name"": ""duck"", ""position"": ""center"", ""action"": ""riding"", ""relative_to"": ""on a motorcycle""},
+       {""name"": ""motorcycle"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+22,un perro corriendo a la izquierda y un gato durmiendo,draw,draw,True,576.6148567199707,631,59,"{
+  ""objects"": [
+       {""name"": ""dog"", ""position"": ""left"", ""action"": ""running"", ""relative_to"": null},
+       {""name"": ""cat"", ""position"": null, ""action"": ""sleeping"", ""relative_to"": null}
+   ]
+}"
+23,dibujame un coche a la derecha y un pajaro volando sobre un arbol arriba,draw,draw,True,510.7426643371582,637,86,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""right"", ""action"": null, ""relative_to"": null},
+       {""name"": ""bird"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""over a tree""},
+       {""name"": ""tree"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+24,pinta una manzana roja... no mejor dibuja un coche azul en el centro,draw,draw,True,1749.0088939666748,635,33,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+25,dibuja un astronauta flotando a la derecha,draw,draw,True,2662.5587940216064,627,35,"{
+  ""objects"": [
+       {""name"": ""astronaut"", ""position"": ""right"", ""action"": ""floating"", ""relative_to"": null}
+   ]
+}"
+26,traza un circulo en el centro y pon un cuadrado adentro de el,draw,draw,True,2569.164752960205,633,60,"{
+  ""objects"": [
+       {""name"": ""circle"", ""position"": ""center"", ""action"": null, ""relative_to"": null},
+       {""name"": ""square"", ""position"": ""center"", ""action"": null, ""relative_to"": ""inside a circle""}
+   ]
+}"
+27,quiero ver un barco navegando en el mar abajo en el lienzo,draw,draw,True,4096.892833709717,631,62,"{
+  ""objects"": [
+       {""name"": ""boat"", ""position"": ""bottom"", ""action"": ""sailing"", ""relative_to"": ""in the sea""},
+       {""name"": ""sea"", ""position"": ""bottom"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+28,esboza un caballo saltando sobre una valla a la izquierda,draw,draw,True,1737.7042770385742,630,63,"{
+  ""objects"": [
+       {""name"": ""horse"", ""position"": ""left"", ""action"": ""jumping"", ""relative_to"": ""over a fence""},
+       {""name"": ""fence"", ""position"": ""left"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+29,pinta un avion volando en las nubes arriba,draw,draw,True,3681.7195415496826,627,64,"{
+  ""objects"": [
+       {""name"": ""airplane"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""in the clouds""},
+       {""name"": ""clouds"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+30,dibuja una taza de cafe caliente en una mesa en el centro,draw,draw,True,2663.830280303955,629,62,"{
+  ""objects"": [
+       {""name"": ""cup of coffee"", ""position"": ""center"", ""action"": null, ""relative_to"": ""on a table""},
+       {""name"": ""table"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+31,Quiero que me dibujes un pato en una moto en el centro,draw,draw,True,2758.8107585906982,630,62,"{
+  ""objects"": [
+       {""name"": ""duck"", ""position"": ""center"", ""action"": ""riding"", ""relative_to"": ""on a motorcycle""},
+       {""name"": ""motorcycle"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+32,un perro corriendo a la izquierda y un gato durmiendo,draw,draw,True,2577.6901245117188,631,59,"{
+  ""objects"": [
+       {""name"": ""dog"", ""position"": ""left"", ""action"": ""running"", ""relative_to"": null},
+       {""name"": ""cat"", ""position"": null, ""action"": ""sleeping"", ""relative_to"": null}
+   ]
+}"
+33,dibujame un coche a la derecha y un pajaro volando sobre un arbol arriba,draw,draw,True,3760.6537342071533,637,86,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""right"", ""action"": null, ""relative_to"": null},
+       {""name"": ""bird"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""over a tree""},
+       {""name"": ""tree"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+34,pinta una manzana roja... no mejor dibuja un coche azul en el centro,draw,draw,True,2666.7704582214355,635,33,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+35,dibuja un astronauta flotando a la derecha,draw,draw,True,2635.1115703582764,627,35,"{
+  ""objects"": [
+     {""name"": ""astronaut"", ""position"": ""right"", ""action"": ""floating"", ""relative_to"": null}
+   ]
+}"
+36,traza un circulo en el centro y pon un cuadrado adentro de el,draw,draw,True,3639.525890350342,633,60,"{
+  ""objects"": [
+      {""name"": ""circle"", ""position"": ""center"", ""action"": null, ""relative_to"": null},
+      {""name"": ""square"", ""position"": ""center"", ""action"": null, ""relative_to"": ""inside a circle""}
+   ]
+}"
+37,quiero ver un barco navegando en el mar abajo en el lienzo,draw,draw,True,2670.7305908203125,631,62,"{
+  ""objects"": [
+       {""name"": ""boat"", ""position"": ""bottom"", ""action"": ""sailing"", ""relative_to"": ""in the sea""},
+       {""name"": ""sea"", ""position"": ""bottom"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+38,esboza un caballo saltando sobre una valla a la izquierda,draw,draw,True,2632.5464248657227,630,63,"{
+  ""objects"": [
+       {""name"": ""horse"", ""position"": ""left"", ""action"": ""jumping"", ""relative_to"": ""over a fence""},
+       {""name"": ""fence"", ""position"": ""left"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+39,pinta un avion volando en las nubes arriba,draw,draw,True,2902.569055557251,627,64,"{
+  ""objects"": [
+       {""name"": ""airplane"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""in the clouds""},
+       {""name"": ""clouds"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+40,dibuja una taza de cafe caliente en una mesa en el centro,draw,draw,True,2633.181571960449,629,62,"{
+  ""objects"": [
+       {""name"": ""cup of coffee"", ""position"": ""center"", ""action"": null, ""relative_to"": ""on a table""},
+       {""name"": ""table"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+41,Quiero que me dibujes un pato en una moto en el centro,draw,draw,True,3610.2294921875,630,62,"{
+  ""objects"": [
+       {""name"": ""duck"", ""position"": ""center"", ""action"": ""riding"", ""relative_to"": ""on a motorcycle""},
+       {""name"": ""motorcycle"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+42,un perro corriendo a la izquierda y un gato durmiendo,draw,draw,True,2637.2125148773193,631,59,"{
+  ""objects"": [
+       {""name"": ""dog"", ""position"": ""left"", ""action"": ""running"", ""relative_to"": null},
+       {""name"": ""cat"", ""position"": null, ""action"": ""sleeping"", ""relative_to"": null}
+   ]
+}"
+43,dibujame un coche a la derecha y un pajaro volando sobre un arbol arriba,draw,draw,True,3666.733980178833,637,86,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""right"", ""action"": null, ""relative_to"": null},
+       {""name"": ""bird"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""over a tree""},
+       {""name"": ""tree"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+44,pinta una manzana roja... no mejor dibuja un coche azul en el centro,draw,draw,True,2594.000816345215,635,33,"{
+  ""objects"": [
+       {""name"": ""car"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+45,dibuja un astronauta flotando a la derecha,draw,draw,True,2462.651252746582,627,35,"{
+  ""objects"": [
+       {""name"": ""astronaut"", ""position"": ""right"", ""action"": ""floating"", ""relative_to"": null}
+   ]
+}"
+46,traza un circulo en el centro y pon un cuadrado adentro de el,draw,draw,True,3628.04913520813,633,60,"{
+  ""objects"": [
+      {""name"": ""circle"", ""position"": ""center"", ""action"": null, ""relative_to"": null},
+      {""name"": ""square"", ""position"": ""center"", ""action"": null, ""relative_to"": ""inside a circle""}
+   ]
+}"
+47,quiero ver un barco navegando en el mar abajo en el lienzo,draw,draw,True,2643.2533264160156,631,62,"{
+  ""objects"": [
+       {""name"": ""boat"", ""position"": ""bottom"", ""action"": ""sailing"", ""relative_to"": ""in the sea""},
+       {""name"": ""sea"", ""position"": ""bottom"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+48,esboza un caballo saltando sobre una valla a la izquierda,draw,draw,True,2631.466865539551,630,63,"{
+  ""objects"": [
+       {""name"": ""horse"", ""position"": ""left"", ""action"": ""jumping"", ""relative_to"": ""over a fence""},
+       {""name"": ""fence"", ""position"": ""left"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+49,pinta un avion volando en las nubes arriba,draw,draw,True,2704.021453857422,627,64,"{
+  ""objects"": [
+       {""name"": ""airplane"", ""position"": ""top"", ""action"": ""flying"", ""relative_to"": ""in the clouds""},
+       {""name"": ""clouds"", ""position"": ""top"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+50,dibuja una taza de cafe caliente en una mesa en el centro,draw,draw,True,3653.6192893981934,629,62,"{
+  ""objects"": [
+       {""name"": ""cup of coffee"", ""position"": ""center"", ""action"": null, ""relative_to"": ""on a table""},
+       {""name"": ""table"", ""position"": ""center"", ""action"": null, ""relative_to"": null}
+   ]
+}"
+51,¿Qué es el protocolo de comunicación MQTT y cómo funciona?,none,none,True,2609.161138534546,627,7,"{
+  ""objects"": []
+}"
+52,oye Diego acuérdate de apagar la luz del laboratorio cuando salgamos,none,none,True,2568.9144134521484,633,7,"{
+  ""objects"": []
+}"
+53,el brazo robotico UR3 utiliza servomotores industriales de alta precision,none,none,True,2540.929079055786,631,7,"{
+  ""objects"": []
+}"
+54,a ver... si... probando microfono uno dos tres,none,none,True,2615.856170654297,626,7,"{
+  ""objects"": []
+}"
+55,ayer fui a cenar tacos con mi tio y platicamos de motores,none,none,True,2464.8187160491943,632,7,"{
+  ""objects"": []
+}"
+56,mañana tal vez usemos el lienzo para pintar algo creativo,none,none,True,3556.777238845825,629,7,"{
+  ""objects"": []
+}"
+57,¿cuánto cuesta la suscripción mensual de la API de OpenAI?,none,none,True,2479.1228771209717,632,7,"{
+  ""objects"": []
+}"
+58,hola buenas tardes robot como te encuentras el dia de hoy,none,none,True,2562.6349449157715,629,7,"{
+  ""objects"": []
+}"
+59,explicame matematicamente como funciona la transformacion cinematica inversa,none,none,True,2579.9100399017334,629,7,"{
+  ""objects"": []
+}"
+60,no hagas nada borra todo lo que estabas pensando,none,none,True,2590.57879447937,628,7,"{
+  ""objects"": []
+}"
+61,¿Qué es el protocolo de comunicación MQTT y cómo funciona?,none,none,True,2555.185079574585,627,7,"{
+  ""objects"": []
+}"
+62,oye Diego acuérdate de apagar la luz del laboratorio cuando salgamos,none,none,True,2540.5492782592773,633,7,"{
+  ""objects"": []
+}"
+63,el brazo robotico UR3 utiliza servomotores industriales de alta precision,none,none,True,2622.5509643554688,631,7,"{
+  ""objects"": []
+}"
+64,a ver... si... probando microfono uno dos tres,none,none,True,2479.1793823242188,626,7,"{
+  ""objects"": []
+}"
+65,ayer fui a cenar tacos con mi tio y platicamos de motores,none,none,True,3535.011053085327,632,7,"{
+  ""objects"": []
+}"
+66,mañana tal vez usemos el lienzo para pintar algo creativo,none,none,True,2540.5168533325195,629,7,"{
+  ""objects"": []
+}"
+67,¿cuánto cuesta la suscripción mensual de la API de OpenAI?,none,none,True,2593.3613777160645,632,7,"{
+  ""objects"": []
+}"
+68,hola buenas tardes robot como te encuentras el dia de hoy,none,none,True,2478.3294200897217,629,7,"{
+  ""objects"": []
+}"
+69,explicame matematicamente como funciona la transformacion cinematica inversa,none,none,True,2615.105152130127,629,7,"{
+  ""objects"": []
+}"
+70,no hagas nada borra todo lo que estabas pensando,none,none,True,2544.4562435150146,628,7,"{
+  ""objects"": []
+}"
+71,¿Qué es el protocolo de comunicación MQTT y cómo funciona?,none,none,True,2488.2328510284424,627,7,"{
+  ""objects"": []
+}"
+72,oye Diego acuérdate de apagar la luz del laboratorio cuando salgamos,none,none,True,3570.620059967041,633,7,"{
+  ""objects"": []
+}"
+73,el brazo robotico UR3 utiliza servomotores industriales de alta precision,none,none,True,2636.939764022827,631,7,"{
+  ""objects"": []
+}"
+74,a ver... si... probando microfono uno dos tres,none,none,True,3366.304636001587,626,7,"{
+  ""objects"": []
+}"
+75,ayer fui a cenar tacos con mi tio y platicamos de motores,none,none,True,1503.1414031982422,632,7,"{
+  ""objects"": []
+}"
+76,mañana tal vez usemos el lienzo para pintar algo creativo,none,none,True,2582.0229053497314,629,7,"{
+  ""objects"": []
+}"
+77,¿cuánto cuesta la suscripción mensual de la API de OpenAI?,none,none,True,2451.8375396728516,632,7,"{
+  ""objects"": []
+}"
+78,hola buenas tardes robot como te encuentras el dia de hoy,none,none,True,3536.797046661377,629,7,"{
+  ""objects"": []
+}"
+79,explicame matematicamente como funciona la transformacion cinematica inversa,none,none,True,2558.5596561431885,629,7,"{
+  ""objects"": []
+}"
+80,no hagas nada borra todo lo que estabas pensando,none,none,True,2545.4204082489014,628,7,"{
+  ""objects"": []
+}"
+81,¿Qué es el protocolo de comunicación MQTT y cómo funciona?,none,none,True,2551.462411880493,627,7,"{
+  ""objects"": []
+}"
+82,oye Diego acuérdate de apagar la luz del laboratorio cuando salgamos,none,none,True,2555.7479858398438,633,7,"{
+  ""objects"": []
+}"
+83,el brazo robotico UR3 utiliza servomotores industriales de alta precision,none,none,True,2480.969190597534,631,7,"{
+  ""objects"": []
+}"
+84,a ver... si... probando microfono uno dos tres,none,none,True,2541.2943363189697,626,7,"{
+  ""objects"": []
+}"
+85,ayer fui a cenar tacos con mi tio y platicamos de motores,none,none,True,3591.0181999206543,632,7,"{
+  ""objects"": []
+}"
+86,mañana tal vez usemos el lienzo para pintar algo creativo,none,none,True,2599.8761653900146,629,7,"{
+  ""objects"": []
+}"
+87,¿cuánto cuesta la suscripción mensual de la API de OpenAI?,none,none,True,2551.5236854553223,632,7,"{
+  ""objects"": []
+}"
+88,hola buenas tardes robot como te encuentras el dia de hoy,none,none,True,2562.419891357422,629,7,"{
+  ""objects"": []
+}"
+89,explicame matematicamente como funciona la transformacion cinematica inversa,none,none,True,2555.9258460998535,629,7,"{
+  ""objects"": []
+}"
+90,no hagas nada borra todo lo que estabas pensando,none,none,True,2401.9598960876465,628,7,"{
+  ""objects"": []
+}"
+91,¿Qué es el protocolo de comunicación MQTT y cómo funciona?,none,none,True,2548.6013889312744,627,7,"{
+  ""objects"": []
+}"
+92,oye Diego acuérdate de apagar la luz del laboratorio cuando salgamos,none,none,True,3521.843194961548,633,7,"{
+  ""objects"": []
+}"
+93,el brazo robotico UR3 utiliza servomotores industriales de alta precision,none,none,True,2539.762020111084,631,7,"{
+  ""objects"": []
+}"
+94,a ver... si... probando microfono uno dos tres,none,none,True,2484.745740890503,626,7,"{
+  ""objects"": []
+}"
+95,ayer fui a cenar tacos con mi tio y platicamos de motores,none,none,True,2584.7136974334717,632,7,"{
+  ""objects"": []
+}"
+96,mañana tal vez usemos el lienzo para pintar algo creativo,none,none,True,2580.825090408325,629,7,"{
+  ""objects"": []
+}"
+97,¿cuánto cuesta la suscripción mensual de la API de OpenAI?,none,none,True,2503.6001205444336,632,7,"{
+  ""objects"": []
+}"
+98,hola buenas tardes robot como te encuentras el dia de hoy,none,none,True,2538.0637645721436,629,7,"{
+  ""objects"": []
+}"
+99,explicame matematicamente como funciona la transformacion cinematica inversa,none,none,True,3446.354389190674,629,7,"{
+  ""objects"": []
+}"
+100,no hagas nada borra todo lo que estabas pensando,none,none,True,2618.4139251708984,628,7,"{
+  ""objects"": []
+}"
