@@ -32,6 +32,10 @@ Extensión del chatbot de la Práctica 3 para convertirlo en un copiloto especia
 
 Extensión del copiloto de la Práctica 4 para soportar tres proveedores: Ollama local (`qwen2.5:7b`), Gemini API (`gemini-2.5-flash`) y Groq API (`llama-3.3-70b-versatile`). Incluye selector de proveedor, campo de API key, métricas unificadas y comparación cuantitativa y cualitativa del mismo prompt en los tres proveedores.
 
+### [Práctica 6 — Evaluación de arquitectura LLM: clasificación semántica para el brazo UR3](practica-06.md)
+
+Adaptación del caso de estudio de evaluación de arquitecturas LLM (backend + JSON + MQTT) al Proyecto Final: banco de 100 pruebas cíclicas contra Llama 3.3 70B (Groq API) para clasificar instrucciones de voz como `draw` o `none`, extrayendo objetos, posiciones y acciones en un JSON estructurado. Incluye métricas de clasificación con scikit-learn (accuracy, F1-score, matriz de confusión), análisis de latencia y consumo de tokens, e instrumento de supervisión humana para auditoría independiente del criterio automático.
+
 ### [Proyecto final - Digital twin para brazo UR3](proyecto_final.md)
 
 Proyecto final — Proyecto Integrador: Gemelo Digital, IA y Robótica Física
