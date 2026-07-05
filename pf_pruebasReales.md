@@ -2,7 +2,7 @@
 title: Frontend y pruebas físicas
 layout: default
 parent: Reporte Final
-nav_order: 4
+nav_order: 3
 ---
 
 # Pruebas Físicas y Flujo de Interfaz en Realidad Mixta
