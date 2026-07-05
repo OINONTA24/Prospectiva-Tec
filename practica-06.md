@@ -93,10 +93,3 @@ El backend (validación de esquema + publicación MQTT + envío al UR3) existe c
 | Mejora propuesta | Reducir el prompt few-shot (~630 → <400 tokens de entrada) y ampliar el dataset con paráfrasis reales |
 
 ---
-
-## Table of contents
-
-- [Código de evaluación]({% link p6-codigo-evaluacion.md %})
-- [Código de análisis]({% link p6-codigo-analisis.md %})
-- [Pruebas y métricas]({% link p6-pruebas.md %})
-- [Reflexión comparativa]({% link p6-reflexion.md %})
