@@ -80,6 +80,16 @@ Si el UR3 se conectara directamente a las salidas del LLM sin capas de protecci�
 - **Saturación de comandos:** la variabilidad de latencia (hasta ~4.1 s en el peor caso) podría acumular peticiones en la cola del broker MQTT, provocando que el robot ejecute movimientos desfasados en el tiempo (comandos obsoletos).
 - **Ausencia de límites de espacio:** posiciones semánticas como `"left"` o `"top"` podrían llevar al robot a intentar alcanzar coordenadas fuera de su espacio de trabajo físico, provocando singularidad cinemática o sobrecorriente en los servomotores.
 
+---
+
+## 10. ¿Qué validaciones agregarías antes de controlar hardware físico?
+
+- **Filtro de confianza mínima:** exigir un campo `confidence` en el JSON con umbral de seguridad (p. ej. `confidence >= 0.85`); de lo contrario, abortar el comando.
+- **Validación geométrica y de espacio:** traducir etiquetas de posición (`left`, `center`, `right`) a coordenadas milimétricas (X, Y, Z) y verificar por software que el punto destino está dentro de los límites seguros del lienzo.
+- **Mecanismo de caducidad (timestamping):** validar un campo `sent_unix_ms` en el payload MQTT; si el retraso entre envío y recepción supera ~3 s, descartar el comando automáticamente para evitar movimientos desfasados.
+
+---
+
 ## Conclusión del experimento
 
 El análisis de rendimiento señala dos puntos a vigilar antes de escalar esta arquitectura a producción:
