@@ -5,7 +5,7 @@ parent: Reporte Final
 nav_order: 6
 ---
 
-# Código: Servidor de Recepción servidor.py
+## Código: Servidor de Recepción servidor.py
 
 Este script actúa como el puente de comunicación principal entre el entorno de realidad mixta (Frontend) y el procesamiento pesado (Backend). Utiliza el framework **Flask** para levantar un servidor ligero en el puerto `5050`.
 
