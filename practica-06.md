@@ -5,6 +5,14 @@ nav_order: 7
 has_children: true
 ---
 
+## INTEGRANTES DEL EQUIPO
+
+Diego Marquez
+
+Haili Avila
+
+José Antonio Reyes
+
 # Práctica 6 — Evaluación de arquitectura LLM: clasificación semántica para el brazo robótico UR3
 
 Esta práctica corresponde a la asignatura **Prospectiva de la Tecnología** (IE127), impartida en la Universidad Iberoamericana Ciudad de México durante el verano 2026.
