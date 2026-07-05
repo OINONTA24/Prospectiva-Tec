@@ -1,5 +1,5 @@
 ---
-title: Servidor de Recepción
+title: Como recibe
 layout: default
 parent: Reporte Final
 nav_order: 6

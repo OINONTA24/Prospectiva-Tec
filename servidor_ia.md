@@ -1,5 +1,5 @@
 ---
-title: Servidor de IA y Robótica
+title: Como construye
 layout: default
 parent: Reporte Final
 nav_order: 7

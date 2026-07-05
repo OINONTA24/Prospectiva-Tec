@@ -1,5 +1,5 @@
 ---
-title: Pipeline Conceptual
+title: Flujo de construcción
 layout: default
 parent: Reporte Final
 nav_order: 7
