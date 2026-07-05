@@ -189,3 +189,71 @@ def procesar_orden():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 ```
+
+## Desglose de las partes clave
+
+### 1. Inicialización: cargar el modelo pesado una sola vez
+
+```python
+modelo_voz = whisper.load_model("base")
+```
+
+Whisper se carga en memoria **al arrancar el servidor**, no dentro de cada petición. Es la diferencia entre esperar unos segundos una sola vez al iniciar el proceso, o esperar ese mismo costo en cada orden de voz del usuario — una decisión de diseño clave para mantener la latencia baja en un flujo interactivo.
+
+Otros detalles de esta sección:
+- `load_dotenv("openai.env")` carga la API key de OpenAI desde un archivo de entorno, siguiendo la buena práctica de no hardcodear credenciales.
+- `client_groq = Groq(api_key="TU_GROQ_API_KEY")`, en cambio, sí trae la key escrita directamente en el código como *placeholder* — vale la pena reemplazar esa línea por una variable de entorno antes de subir el proyecto a un repositorio público.
+- `os.environ["PATH"] += ...C:\ffmpeg\bin` es un ajuste específico de Windows: tanto Whisper como `pydub` (en `servidor.py`) dependen de `ffmpeg` para decodificar audio, y esta línea garantiza que el ejecutable sea visible para esos procesos.
+
+> **Nota:** al igual que en `servidor.py`, la constante `URL_COMPANERA_TRAYECTORIA` conserva corchetes y paréntesis de un enlace en formato Markdown mal pegado. Como está escrita, la cadena no es una URL válida; debería quedar simplemente como `http://127.0.0.1:5050/trayectoria`.
+
+### 2. FASE 1 — De la voz a un JSON estructurado (Whisper → Llama 3.3)
+
+Primero, `modelo_voz.transcribe(ARCHIVO_AUDIO, language="es")` transcribe el audio forzando el idioma español (evita que Whisper intente detectar el idioma automáticamente, lo cual es más rápido y más preciso cuando ya se sabe el idioma de antemano).
+
+El texto resultante se inserta en un *prompt* que se envía a **Llama 3.3** a través de Groq. Dos detalles técnicos importan aquí:
+- `response_format={"type": "json_object"}` obliga al modelo a devolver JSON válido, evitando el trabajo extra de parsear texto libre en busca de una estructura.
+- `temperature=2.0` es un valor muy alto (la escala típica va de 0 a 2). Con temperaturas cercanas al máximo, el modelo prioriza la variedad/creatividad sobre la consistencia — útil si se busca que interprete peticiones ambiguas de forma más libre, pero también aumenta el riesgo de que la extracción de objetos sea menos predecible. Si en algún momento la extracción de intención se vuelve inestable, este es el primer parámetro a revisar (valores entre 0 y 0.5 son más típicos para tareas de extracción estructurada).
+- La línea `objects_list = [obj for obj in ... if obj.get('name')]` filtra de forma defensiva cualquier objeto mal formado que el LLM pudiera haber devuelto sin el campo `name`.
+
+### 3. FASE 2 — Ingeniería de prompt para una imagen "procesable" (OpenAI)
+
+```python
+MASTER_PROMPT = f"A single cohesive solid black silhouette scene containing {objects_list[0].get('name')}. Pure white background, completely flat."
+```
+
+Este prompt no es solo una descripción visual: está diseñado a propósito para lo que viene después en OpenCV. Pedir explícitamente una **silueta sólida negra sobre fondo blanco puro y completamente plana** simplifica al máximo el trabajo de segmentación — sin gradientes, sombreados ni texturas, el umbral binario de la fase siguiente puede separar figura y fondo de forma limpia y determinista.
+
+Nótese también que solo se usa `objects_list[0]`: aunque Llama 3.3 puede extraer una lista completa de objetos, la versión actual del pipeline solo dibuja el primero. Es una simplificación de alcance del prototipo, no una limitación técnica del LLM.
+
+### 4. FASE 3 — De píxeles a coordenadas de robot (OpenCV)
+
+Esta es la fase más densa del archivo. En orden:
+
+1. **Escala de grises + umbral de Otsu** (`cv2.threshold(..., THRESH_BINARY_INV + THRESH_OTSU)`): binariza la imagen sin necesidad de ajustar manualmente el valor de corte — Otsu lo calcula automáticamente a partir del histograma, y `THRESH_BINARY_INV` invierte la imagen para que la silueta (negra) quede como primer plano blanco.
+2. **`cv2.findContours(..., RETR_LIST, CHAIN_APPROX_NONE)`**: extrae todos los contornos como una lista plana (sin jerarquía padre-hijo) y sin comprimir puntos todavía — la compresión real ocurre a propósito más adelante, con Douglas-Peucker.
+3. **Filtrado de ruido** (`if perimetro < 20: continue`): descarta contornos minúsculos que suelen ser artefactos de compresión de la imagen, no formas reales.
+4. **Deduplicación por perímetro**: OpenCV frecuentemente detecta el borde interior y el borde exterior de una misma silueta como dos contornos casi idénticos. Comparar perímetros con una tolerancia del 5% evita que el robot dibuje el mismo trazo dos veces.
+5. **Simplificación con Douglas-Peucker** (`cv2.approxPolyDP(cnt, 0.001 * perimetro, True)`): reduce la cantidad de puntos del contorno preservando su forma general. Esto es crítico para el robot: menos puntos significa menos comandos `movel` por trazo, movimientos más fluidos y menor carga en la comunicación con el controlador.
+6. **Normalización a coordenadas UV**: `u = x/ancho`, `v = 1 - y/alto`. La inversión del eje Y es necesaria porque en una imagen el origen (0,0) está arriba a la izquierda, mientras que la convención UV — la misma que usa Unity para mapear texturas — ubica el origen abajo a la izquierda.
+
+Al final de la fase, el resultado se reenvía al Servidor de Recepción (`requests.post(URL_COMPANERA_TRAYECTORIA, ...)`) envuelto en un `try/except` con timeout corto: si esa llamada falla, el error se registra pero **no** detiene el pipeline — el robot puede seguir dibujando aunque Unity se quede sin datos para el gemelo digital en esa ejecución.
+
+### 5. FASE 4 — Control físico directo con `urx`
+
+La última fase abandona las coordenadas normalizadas y las traduce al espacio real de trabajo del robot:
+
+```python
+x_real = X_ORIGEN + (punto["u"] * ANCHO_PIZARRON)
+y_real = Y_ORIGEN + (punto["v"] * ANCHO_PIZARRON)
+```
+
+Aquí `X_ORIGEN`/`Y_ORIGEN` ubican la esquina del "pizarrón" en el sistema de coordenadas del robot, y `ANCHO_PIZARRON` escala el rango `[0,1]` de UV al tamaño físico real del área de dibujo. Un detalle a tener en cuenta: se usa el mismo `ANCHO_PIZARRON` para escalar tanto X como Y, lo que asume un área de dibujo cuadrada — si la imagen generada no fuera cuadrada, esto podría introducir una ligera distorsión de proporciones.
+
+El resto de la fase es el patrón clásico de un plotter/dibujo con brazo robótico:
+- Orientación fija de la herramienta (`rx, ry, rz = 0, 3.1416, 0`) y velocidades bajas (`v=0.05`, `a=0.1`) para privilegiar precisión sobre velocidad.
+- Por cada trazo, el primer punto se aborda primero en el aire (`Z_AIRE`) y luego se desciende (`Z_DIBUJO`) — esto evita que el efector arrastre el plumón desde el punto final del trazo anterior.
+- Al terminar cada trazo, el brazo vuelve a subir antes de iniciar el siguiente.
+- `robot.close()` libera limpiamente la conexión Ethernet con el controlador al finalizar.
+
+Todo el bloque está envuelto en su propio `try/except`, de modo que un fallo de conexión con el brazo físico no interrumpe el resto de la respuesta HTTP — el endpoint sigue devolviendo un JSON de estado en cualquier caso.

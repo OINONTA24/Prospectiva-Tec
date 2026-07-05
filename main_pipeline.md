@@ -56,3 +56,40 @@ def ejecutar_pipeline_completo():
 if __name__ == '__main__':
     ejecutar_pipeline_completo()
 ```
+
+## Desglose de las partes clave
+
+### 1. La importación: el mapa de las tres etapas de IA
+
+```python
+from servidor_ia import transcribir_audio, obtener_intencion, procesar_coordenadas_visuales
+```
+
+Esta línea es la columna vertebral conceptual de todo el proyecto. Cada nombre importado representa, en el papel, una de las etapas de IA descritas en la sección **Servidor de IA y Robótica**:
+
+| Función | Modelo de IA detrás | Rol en el pipeline |
+|---|---|---|
+| `transcribir_audio` | **Whisper** | STT — convierte el audio grabado por el usuario en texto |
+| `obtener_intencion` | **Llama 3.3** (vía Groq) | Interpreta el texto y lo estructura como JSON |
+| `procesar_coordenadas_visuales` | **OpenAI** (imagen) + **OpenCV** (visión) | Genera la silueta del objeto y la convierte en coordenadas dibujables |
+
+> **Nota para quien lea el repositorio:** en la implementación real (`servidor_ia.py`) estas tres etapas no existen como funciones separadas con estos nombres exactos; están fusionadas dentro de un único endpoint Flask (`/recibir-orden`), justamente para evitar saltos de red innecesarios entre procesos. Por eso `main_pipeline.py` no puede ejecutarse tal cual contra el servidor real: es una prueba de escritorio que documenta *cómo se pensó* la arquitectura antes de fusionar las fases por razones de rendimiento.
+
+### 2. `enviar_a_robot()`: el puente de bajo nivel hacia el controlador físico
+
+Esta función se conecta directamente al controlador **CB3** del UR3 usando un socket TCP crudo sobre el puerto **30002**, que es una de las interfaces de "cliente secundario" que expone el controlador para recibir comandos en **URScript** (el lenguaje nativo de Universal Robots) en tiempo real, sin pasar por la interfaz gráfica del robot.
+
+Puntos clave:
+- Cada punto de la trayectoria (`waypoints`) se traduce en un comando `movel(p[x, y, z, rx, ry, rz], a=..., v=...)`, donde `p[...]` es una pose cartesiana absoluta.
+- La orientación se deja fija en `(0, 3.14, 0)` — una rotación de ~180° sobre el eje Y — pensada para que la herramienta (plumón/efector) quede perpendicular al plano de dibujo.
+- `a=0.1` y `v=0.1` son la aceleración y velocidad máximas, deliberadamente bajas para privilegiar precisión y seguridad sobre velocidad.
+- El `time.sleep(0.1)` entre envíos evita saturar el buffer de comandos del controlador, que procesa las instrucciones de forma secuencial.
+- El `try/except` envuelve toda la comunicación: si el robot no responde o la red falla, el error se reporta pero no interrumpe el resto del programa.
+
+### 3. `ejecutar_pipeline_completo()`: las cuatro fases en secuencia
+
+Esta función es la versión "legible" del flujo completo del gemelo digital: voz → intención → imagen/coordenadas → movimiento. Cada `print` marca una fase que, en la implementación real, corresponde exactamente a las **FASE 1 a FASE 4** dentro de `servidor_ia.py` (ver esa sección para el detalle técnico de cada una).
+
+## ¿Por qué conservar este archivo en el repositorio?
+
+Aunque no se ejecuta en producción, cumple un rol de documentación viva: cualquier persona que quiera entender el flujo de datos de punta a punta (voz → intención → imagen → coordenadas → movimiento del brazo) puede leer este archivo de arriba a abajo sin tener que rastrear la lógica —mucho más densa— repartida entre los dos servidores Flask reales.

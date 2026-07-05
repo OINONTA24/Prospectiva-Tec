@@ -173,3 +173,43 @@ if __name__ == "__main__":
         threaded=True
     )
 ```
+
+## Desglose de las partes clave
+
+### 1. Estado en memoria, no en base de datos
+
+```python
+contador_posts   = 0
+ultimo_recibido  = None
+ultimo_trayectoria = None
+trayectoria_id     = 0
+```
+
+En lugar de una base de datos, el servidor guarda su estado en variables globales de Python. Es una decisión razonable para un prototipo de un solo usuario y una sola sesión de dibujo: es simple y no añade dependencias. La contrapartida es que **no es thread-safe ni persistente** — si el proceso se reinicia se pierde todo, y si dos clientes escriben al mismo tiempo puede haber condiciones de carrera. Para una versión multi-usuario esto es lo primero que habría que reemplazar (por ejemplo con Redis o una cola).
+
+### 2. Rutas de diagnóstico: `/`, `/status`, `/debug`
+
+Estas tres rutas no forman parte del pipeline de dibujo en sí; existen para poder verificar en el navegador, sin herramientas adicionales, que el servidor está vivo, cuántas peticiones ha recibido y qué fue lo último que llegó. Son especialmente útiles durante la integración con Unity, donde los errores de red pueden ser difíciles de depurar desde el lado del headset.
+
+### 3. `/audio`: el corazón del relevo Unity → IA
+
+Esta es la ruta más importante del archivo. Nota cómo maneja **tres tipos de contenido distintos** en el mismo endpoint:
+1. Si el cuerpo es JSON, simplemente lo registra (útil para pruebas manuales con Postman).
+2. Si trae un archivo bajo la clave `'audio'` — el caso real que envía Unity — lo guarda como `.wav`, lo convierte a `.mp3` con `pydub` (que a su vez depende de `ffmpeg` instalado en el sistema) y **reenvía ese `.mp3` por HTTP POST al Servidor de IA** en el endpoint `/recibir-orden`.
+3. Si no es ninguno de los dos casos anteriores, guarda los bytes crudos como respaldo.
+
+El `timeout=120` en la petición de reenvío no es casual: refleja que del otro lado hay un pipeline pesado (Whisper + Llama 3.3 + generación de imagen + OpenCV + movimiento del robot), que puede tardar bastante más que una llamada HTTP típica.
+
+> **Nota de implementación:** la línea `url_tu_servidor = "[http://127.0.0.1:5000/recibir-orden](http://127.0.0.1:5000/recibir-orden)"` conserva corchetes y paréntesis que parecen un residuo de un enlace en formato Markdown pegado por error. Tal como está escrita, esa cadena **no** apunta a una URL válida; en el servidor real debería ser simplemente `http://127.0.0.1:5000/recibir-orden`. Vale la pena revisarlo antes de usar este código como referencia definitiva en el repositorio.
+
+### 4. El patrón "buzón" de `/trayectoria` (POST + GET)
+
+Estas dos rutas comparten el mismo path pero cumplen roles opuestos:
+- **POST** (la usa el Servidor de IA): valida que venga el campo `strokes`, le agrega un `_id` incremental y un `_timestamp`, y lo guarda como "la trayectoria pendiente".
+- **GET** (la usa Unity): si hay una trayectoria guardada, la entrega **y la borra** (`ultimo_trayectoria = None`); si no hay nada, responde `204 No Content`.
+
+Es, en esencia, una cola de un solo lugar ("mailbox de una sola casilla"): garantiza que Unity nunca dibuje la misma trayectoria dos veces, a costa de que solo puede haber un cliente consumidor a la vez. Para el alcance del proyecto (un headset, un robot) es una solución elegante y suficiente.
+
+### 5. `/descargar-audio`
+
+Ruta de conveniencia para poder escuchar o inspeccionar manualmente el último audio recibido, sin tener que entrar al sistema de archivos del servidor.
